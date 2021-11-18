@@ -1,8 +1,22 @@
 import './TrialSection.scss'
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function TrialSection() {
+
+    const [data, setData] = useState([{}]);
+
+    useEffect(() => {
+        fetch("/crop").then(
+            res => res.json()
+        ).then(
+            data => {
+                setData(data)
+                console.log(data)
+            }
+        )
+    }, [])
+
     return (
         <div className="section trailSection">
             <div className="trailSectionLeft">
