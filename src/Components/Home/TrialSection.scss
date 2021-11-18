@@ -30,5 +30,66 @@
     }
     .trailSectionRight{
         flex: 1;
+        
+        form{
+            margin: 15%;
+            
+            .inputDiv{
+                display: flex;
+                flex-direction: column;
+                // background-color: blue;
+                width: 45%;
+                margin-bottom: 10px;
+
+                label{
+                    font-size: small;
+                    color: #6F7482;
+                }
+                input{
+                    padding: 10px;
+                    border: none;
+                    background-color: #F8FAFC;
+
+                    &:focus{
+                        // border: rgb(180, 180, 180) solid 1px;
+                        outline: none;
+                    }
+                    &::placeholder{
+                        color: #B8BCCA;
+                    }
+                }
+            }
+
+            .inputRow{
+                display: flex;
+                flex-direction: row;
+                // background-color: red;
+                justify-content: space-between;
+            }
+
+            button{
+                color: white;
+                background-color: #0A142F;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 10px;
+                margin-top: 20px;
+                cursor: pointer;
+
+                box-shadow: 10px 10px 91px -10px rgba(113,150,216,0.75);
+                -webkit-box-shadow: 10px 10px 91px -10px rgba(113,150,216,0.75);
+                -moz-box-shadow: 10px 10px 91px -10px rgba(113,150,216,0.75);
+            }
+
+            .resultDiv{
+                background-color: #D6E5F4;
+                padding: 10px;
+                margin-top: 25px;
+                border-radius: 5px;
+                font-weight: bold;
+                // font-size: ;
+            }
+        }
+
     }
 }
