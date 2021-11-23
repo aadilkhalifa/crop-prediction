@@ -11,9 +11,8 @@ function TrialSection() {
     var P_value;
     var K_value;
     var Ph_value;
-    var Temp_value;
-    var Humidity_value;
-    var Rainfall_value;
+    var state_value;
+    var district_value;
 
     function getData(){
 
@@ -27,9 +26,14 @@ function TrialSection() {
                 P: P_value, 
                 K: K_value, 
                 Ph: Ph_value,  
-                temprature: Temp_value,  
-                humidity: Humidity_value,  
-                rainfall: Rainfall_value,  
+                state: state_value,  
+                district: district_value,
+                // N: 10, 
+                // P: 10, 
+                // K: 10, 
+                // Ph: 10,  
+                // state: 'ASSAM',  
+                // district: 'JORHAT',
                 // N: '83', 
                 // P: '45', 
                 // K: '60', 
@@ -88,23 +92,17 @@ function TrialSection() {
                                 onChange={(value)=>Ph_value=value.target.value}  />
                         </div>
                     </div>
+                    <h3>Location Data</h3>
                     <div className="inputRow">
                         <div className="inputDiv">
-                            <label htmlFor="temprature">Temprature value</label>
-                            <input name="temprature" type="text" placeholder="Enter value"
-                                onChange={(value)=>Temp_value=value.target.value} />
+                            <label htmlFor="state">State</label>
+                            <input name="state" type="text" placeholder="Enter value" 
+                                onChange={(value)=>state_value=value.target.value} />
                         </div>
                         <div className="inputDiv">
-                            <label htmlFor="humidity">Humidity value</label>
-                            <input name="humidity" type="text" placeholder="Enter value"
-                                onChange={(value)=>Humidity_value=value.target.value}  />
-                        </div>
-                    </div>
-                    <div className="inputRow">
-                        <div className="inputDiv">
-                            <label htmlFor="rainfall">Rainfall value</label>
-                            <input name="rainfall" type="text" placeholder="Enter value"
-                                onChange={(value)=>Rainfall_value=value.target.value} />
+                            <label htmlFor="district">District</label>
+                            <input name="district" type="text" placeholder="Enter value"
+                                onChange={(value)=>district_value=value.target.value} />
                         </div>
                     </div>
                     {/* <div className="inputRow">
