@@ -16,7 +16,7 @@ function TrialSection() {
 
     function getData(){
 
-        const requestOptions = {
+        var requestOptions = {
             // mode:'no-cors',
             dataType: 'json',
             method: 'POST',

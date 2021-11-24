@@ -3,6 +3,7 @@ import './Home.scss'
 import LandingSection from './LandingSection'
 import Footer from './Footer'
 import TrialSection from './TrialSection'
+import TrialSection2 from './TrialSection2'
 
 function Home() {
     return (
@@ -12,6 +13,9 @@ function Home() {
             </section>
             <section id="section2">
                 <TrialSection/>
+            </section>
+            <section id="section2">
+                <TrialSection2/>
             </section>
             <section id="section3">
                 <Footer/>
