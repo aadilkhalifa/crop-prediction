@@ -2,17 +2,26 @@ import './TrialSection.scss'
 
 import React, {useState, useEffect} from 'react'
 
+import states from './states.json';
+import districts from './districts2.json';
 
 function TrialSection() {
 
     const [data, setData] = useState("");
 
-    var N_value;
-    var P_value;
-    var K_value;
-    var Ph_value;
-    var state_value;
-    var district_value;
+    // var N_value;
+    // var P_value;
+    // var K_value;
+    // var Ph_value;
+    // var state_value;
+    // var district_value;
+
+    const [N_value, setN_value] = useState('');
+    const [P_value, setP_value] = useState('');
+    const [K_value, setK_value] = useState('');
+    const [Ph_value, setPh_value] = useState('');
+    const [state_value, setstate_value] = useState('0');
+    const [district_value, setdistrict_value] = useState('0');
 
     function getData(){
 
@@ -71,38 +80,42 @@ function TrialSection() {
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="nitrogen">Nitrogen value</label>
-                            <input name="nitrogen" type="text" placeholder="Enter value" 
-                                onChange={(value)=>N_value=value.target.value} />
+                            <input name="nitrogen" type="text" placeholder="Enter value" value={N_value}
+                                onInput={e => setN_value(e.target.value)} />
                         </div>
                         <div className="inputDiv">
                             <label htmlFor="phosphorus">Phosphorus value</label>
-                            <input name="phosphorus" type="text" placeholder="Enter value"
-                                onChange={(value)=>P_value=value.target.value} />
+                            <input name="phosphorus" type="text" placeholder="Enter value" value={P_value}
+                                onInput={e => setP_value(e.target.value)} />
                         </div>
                     </div>
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="potassium">Potassium value</label>
-                            <input name="potassium" type="text" placeholder="Enter value"
-                                onChange={(value)=>K_value=value.target.value} />
+                            <input name="potassium" type="text" placeholder="Enter value" value={K_value}
+                                onInput={e => setK_value(e.target.value)} />
                         </div>
                         <div className="inputDiv">
                             <label htmlFor="ph">Ph value</label>
-                            <input name="ph" type="text" placeholder="Enter value"
-                                onChange={(value)=>Ph_value=value.target.value}  />
+                            <input name="ph" type="text" placeholder="Enter value" value={Ph_value}
+                                onInput={e => setPh_value(e.target.value)}  />
                         </div>
                     </div>
                     <h3>Location Data</h3>
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="state">State</label>
-                            <input name="state" type="text" placeholder="Enter value" 
-                                onChange={(value)=>state_value=value.target.value} />
+                            <select
+                            onChange={f => {setstate_value(f.target.value); }} >
+                                {states.map((e, i)=><option value={i} key={i}>{e}</option>)}
+                            </select>
                         </div>
                         <div className="inputDiv">
                             <label htmlFor="district">District</label>
-                            <input name="district" type="text" placeholder="Enter value"
-                                onChange={(value)=>district_value=value.target.value} />
+                            <select
+                            onChange={f => {setdistrict_value(f.target.value);}} >
+                                {districts[state_value].map((e, i)=><option value={i} key={i}>{e}</option>)}
+                            </select>
                         </div>
                     </div>
                     {/* <div className="inputRow">

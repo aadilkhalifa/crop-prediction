@@ -84,7 +84,7 @@ def members2():
         ph = float(request.json['Ph'])
         state = request.json['state']
         district = request.json['district']
-        moisture = request.json['moisture']
+        moisture = float(request.json['moisture'])
         soil_type = request.json['soil_type']
         crop_type = request.json['crop_type']
     except:
