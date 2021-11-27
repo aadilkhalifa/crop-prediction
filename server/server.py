@@ -37,8 +37,11 @@ def members1():
         ph = float(request.json['Ph'])
         state = request.json['state']
         district = request.json['district']
+        start_month = int(request.json['start_month'])
+        end_month = int(request.json['end_month'])
     except:
         return jsonify({"crop": 'failed to get info', "data": request.json})
+    # return jsonify({"crop": 'printing request', "data": request.json})
 
     temprature = 20
     humidity = 30
@@ -54,13 +57,32 @@ def members1():
     temprature = y.json()['main']['temp']
 
     df=pd.read_csv("./data2.csv")
-    q = df.query('STATE_UT_NAME=="ANDAMAN And NICOBAR ISLANDS" and DISTRICT == "NICOBAR"', inplace = False)
-    # q = df.query('STATE_UT_NAME == "{}" and DISTRICT == "{}"'.format(state, district), inplace = False)
+    # q = df.query('STATE_UT_NAME=="ANDAMAN And NICOBAR ISLANDS" and DISTRICT == "NICOBAR"', inplace = False)
+    q = df.query('STATE_UT_NAME == "{}" and DISTRICT == "{}"'.format(state, district), inplace = False)
 
     total=0
+    # l=12
+
+    # if start_month <= end_month: 
+    #     l=1
+    #     x=start_month
+    #     y=end_month
+    # elif start_month > end_month:
+    #     l = (end_month+12) - start_month + 1
+    #     x=start_month
+    #     y=end_month+12
+
+    # for i in range(x, y+1):
+    #     k = i
+    #     if k>12:
+    #         k=k-12
+    #     total+=int(q[k:k+1].value)
     for i in range(len(q)):
         total+=int(q[i:i+1].value)
-    avg_rainfall = total/len(q)
+
+    # l=(end_month-start_month)
+    l=12
+    avg_rainfall = total/l
 
     data = np.array([[N, P, K, temprature, humidity, ph, avg_rainfall]])
 

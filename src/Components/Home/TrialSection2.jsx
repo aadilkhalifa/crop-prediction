@@ -22,6 +22,8 @@ function TrialSection() {
     const [Moisture_value, setMoisture_value] = useState('');
     const [CropType_value, setCropType_value] = useState('0');
     const [SoilType_value, setSoilType_value] = useState('0');
+    const [start_month, setstart_month] = useState('1');
+    const [end_month, setend_month] = useState('12');
 
     function getData(){
 
@@ -40,8 +42,10 @@ function TrialSection() {
                 moisture: Moisture_value,
                 soil_type: SoilType_value,
                 // soil_type: soil_type_list[SoilType_value],
-                crop_type: CropType_value
+                crop_type: CropType_value,
                 // crop_type: crop_type_list[CropType_value]
+                start_month: start_month,
+                end_month: end_month,
             })
         };
 
@@ -136,7 +140,45 @@ function TrialSection() {
                                 onInput={e => setCropType_value(e.target.value)}/> */}
                         </div>
                     </div>
-                    <h3>Location Data</h3>
+                    <div className="inputRow">
+                        <div className="inputDiv">
+                            <label htmlFor="state">Start month</label>
+                            <select
+                            onChange={f => {setstart_month(f.target.value); }} >
+                                <option value={1} >January</option>
+                                <option value={2} >February</option>
+                                <option value={3} >March</option>
+                                <option value={4} >April</option>
+                                <option value={5} >May</option>
+                                <option value={6} >June</option>
+                                <option value={7} >July</option>
+                                <option value={8} >August</option>
+                                <option value={9} >September</option>
+                                <option value={10} >October</option>
+                                <option value={11} >November</option>
+                                <option value={12} >December</option>
+                            </select>
+                        </div>
+                        <div className="inputDiv">
+                            <label htmlFor="district">End month</label>
+                            <select
+                            onChange={f => {setend_month(f.target.value); }} >
+                                <option value={1} >January</option>
+                                <option value={2} >February</option>
+                                <option value={3} >March</option>
+                                <option value={4} >April</option>
+                                <option value={5} >May</option>
+                                <option value={6} >June</option>
+                                <option value={7} >July</option>
+                                <option value={8} >August</option>
+                                <option value={9} >September</option>
+                                <option value={10} >October</option>
+                                <option value={11} >November</option>
+                                <option value={12} >December</option>
+                            </select>
+                        </div>
+                    </div>
+                    {/* <h3>Location Data</h3> */}
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="state2">State</label>

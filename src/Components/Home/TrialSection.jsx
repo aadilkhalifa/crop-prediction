@@ -22,7 +22,9 @@ function TrialSection() {
     const [Ph_value, setPh_value] = useState('');
     const [state_value, setstate_value] = useState('0');
     const [district_value, setdistrict_value] = useState('0');
-
+    const [start_month, setstart_month] = useState('1');
+    const [end_month, setend_month] = useState('12');
+    
     function getData(){
 
         var requestOptions = {
@@ -37,6 +39,8 @@ function TrialSection() {
                 Ph: Ph_value,  
                 state: state_value,  
                 district: district_value,
+                start_month: start_month,
+                end_month: end_month,
                 // N: 10, 
                 // P: 10, 
                 // K: 10, 
@@ -101,7 +105,45 @@ function TrialSection() {
                                 onInput={e => setPh_value(e.target.value)}  />
                         </div>
                     </div>
-                    <h3>Location Data</h3>
+                    <div className="inputRow">
+                        <div className="inputDiv">
+                            <label htmlFor="state">Start month</label>
+                            <select
+                            onChange={f => {setstart_month(f.target.value); }} >
+                                <option value={1} >January</option>
+                                <option value={2} >February</option>
+                                <option value={3} >March</option>
+                                <option value={4} >April</option>
+                                <option value={5} >May</option>
+                                <option value={6} >June</option>
+                                <option value={7} >July</option>
+                                <option value={8} >August</option>
+                                <option value={9} >September</option>
+                                <option value={10} >October</option>
+                                <option value={11} >November</option>
+                                <option value={12} >December</option>
+                            </select>
+                        </div>
+                        <div className="inputDiv">
+                            <label htmlFor="district">End month</label>
+                            <select
+                            onChange={f => {setend_month(f.target.value); }} >
+                                <option value={1} >January</option>
+                                <option value={2} >February</option>
+                                <option value={3} >March</option>
+                                <option value={4} >April</option>
+                                <option value={5} >May</option>
+                                <option value={6} >June</option>
+                                <option value={7} >July</option>
+                                <option value={8} >August</option>
+                                <option value={9} >September</option>
+                                <option value={10} >October</option>
+                                <option value={11} >November</option>
+                                <option value={12} >December</option>
+                            </select>
+                        </div>
+                    </div>
+                    {/* <h3>Location Data</h3> */}
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="state">State</label>
@@ -118,18 +160,6 @@ function TrialSection() {
                             </select>
                         </div>
                     </div>
-                    {/* <div className="inputRow">
-                        <div className="inputDiv">
-                            <h3>Location Data</h3>
-                            <label htmlFor="">Location</label>
-                            <input type="text" placeholder="Enter value"  />
-                        </div>
-                        <div className="inputDiv">
-                            <h3>Time Data</h3>
-                            <label htmlFor="">Time Period</label>
-                            <input type="text" placeholder="Enter value"  />
-                        </div>
-                    </div> */}
                     <button onClick={ getData } type="button">Submit</button>
                     {
                         data !== "" ?
