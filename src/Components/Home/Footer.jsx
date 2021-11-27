@@ -8,7 +8,8 @@ import {
 function Footer() {
     return (
         <div className="section footerSection">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quisquam fuga laudantium at tempore temporibus magni voluptatem quos ipsa dicta veritatis officiis quas ullam ratione quae nihil possimus, aliquam distinctio?</p>
+            <p>This website provides farmers with an essential decision support tool providing recommended crops and fertilizers for their soil using Data Science and Machine learning techniques.</p>
+            {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quisquam fuga laudantium at tempore temporibus magni voluptatem quos ipsa dicta veritatis officiis quas ullam ratione quae nihil possimus, aliquam distinctio?</p> */}
 
             <div className="footerLinksDiv">
                 <Link to="#section1">Home</Link>

@@ -34,7 +34,7 @@ function TrialSection() {
                 N: N_value, 
                 P: P_value, 
                 K: K_value, 
-                Ph: Ph_value,  
+                // Ph: Ph_value,  
                 state: states[state_value],  
                 district: districts[state_value][district_value],
                 moisture: Moisture_value,
@@ -86,18 +86,19 @@ function TrialSection() {
                             <input name="potassium2" type="text" placeholder="Enter value" value={K_value}
                                 onInput={e => setK_value(e.target.value)} />
                         </div>
-                        <div className="inputDiv">
+                        {/* <div className="inputDiv">
                             <label htmlFor="ph2">Ph value</label>
                             <input name="ph2" type="text" placeholder="Enter value" value={Ph_value}
                                 onInput={e => setPh_value(e.target.value)}  />
-                        </div>
-                    </div>
-                    <div className="inputRow">
+                        </div> */}
                         <div className="inputDiv">
                             <label htmlFor="moisture2">Moisture value</label>
                             <input name="moisture2" type="text" placeholder="Enter value" value={Moisture_value}
                                 onInput={e => setMoisture_value(e.target.value)} />
                         </div>
+                    </div>
+                    <div className="inputRow">
+                        
                         <div className="inputDiv">
                             <label htmlFor="soilType2">Soil type</label>
 
@@ -113,8 +114,6 @@ function TrialSection() {
                             {/* <input name="soilType2" type="text" placeholder="Enter value" value= {SoilType_value}
                                 onInput={e => setSoilType_value(e.target.value)} /> */}
                         </div>
-                    </div>
-                    <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="cropType2">Crop type</label>
 
@@ -137,7 +136,7 @@ function TrialSection() {
                                 onInput={e => setCropType_value(e.target.value)}/> */}
                         </div>
                     </div>
-                    {/* <h3>Location Data</h3> */}
+                    <h3>Location Data</h3>
                     <div className="inputRow">
                         <div className="inputDiv">
                             <label htmlFor="state2">State</label>

@@ -81,7 +81,7 @@ def members2():
         N = int(request.json['N'])
         P = int(request.json['P'])
         K = int(request.json['K'])
-        ph = float(request.json['Ph'])
+        # ph = float(request.json['Ph'])
         state = request.json['state']
         district = request.json['district']
         moisture = float(request.json['moisture'])
