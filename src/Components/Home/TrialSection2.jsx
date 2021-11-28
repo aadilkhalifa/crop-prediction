@@ -13,6 +13,8 @@ function TrialSection() {
 
     const [data2, setData2] = useState("");
 
+    const [Loading, setLoading] = useState(-1);
+
     const [N_value, setN_value] = useState('');
     const [P_value, setP_value] = useState('');
     const [K_value, setK_value] = useState('');
@@ -26,6 +28,8 @@ function TrialSection() {
     const [end_month, setend_month] = useState('12');
 
     function getData(){
+
+        setLoading(1);
 
         var requestOptions = {
             // mode:'no-cors',
@@ -54,8 +58,9 @@ function TrialSection() {
         fetch('http://localhost:5000/fertilizer', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setData2(data.crop)
+                console.log(data);
+                setData2(data.crop);
+                setLoading(0);
             })
             .catch(error => {
                 console.error('There was an error!', error);
@@ -205,6 +210,10 @@ function TrialSection() {
                     
                     <button onClick={ getData } type="button">Submit</button>
                     {
+                        Loading == 1 ? 
+                        <div className="resultDiv">
+                            Loading....
+                        </div> : 
                         data2 !== "" ?
                             <div className="resultDiv">
                                 Recommeded Fertilizer: {data2}

@@ -16,6 +16,8 @@ function TrialSection() {
     // var state_value;
     // var district_value;
 
+    const [Loading, setLoading] = useState(-1);
+    
     const [N_value, setN_value] = useState('');
     const [P_value, setP_value] = useState('');
     const [K_value, setK_value] = useState('');
@@ -26,6 +28,8 @@ function TrialSection() {
     const [end_month, setend_month] = useState('12');
     
     function getData(){
+
+        setLoading(1);
 
         var requestOptions = {
             // mode:'no-cors',
@@ -60,8 +64,9 @@ function TrialSection() {
         fetch('http://localhost:5000/crop', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                setData(data.crop)
+                console.log(data);
+                setData(data.crop);
+                setLoading(0);
             })
             .catch(error => {
                 console.error('There was an error!', error);
@@ -162,6 +167,10 @@ function TrialSection() {
                     </div>
                     <button onClick={ getData } type="button">Submit</button>
                     {
+                        Loading == 1 ? 
+                        <div className="resultDiv">
+                            Loading....
+                        </div> : 
                         data !== "" ?
                             <div className="resultDiv">
                                 Recommeded Crop: {data}
