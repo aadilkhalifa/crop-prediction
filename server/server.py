@@ -63,25 +63,40 @@ def members1():
     total=0
     # l=12
 
-    # if start_month <= end_month: 
-    #     l=1
-    #     x=start_month
-    #     y=end_month
-    # elif start_month > end_month:
-    #     l = (end_month+12) - start_month + 1
-    #     x=start_month
-    #     y=end_month+12
+    if start_month <= end_month: 
+        l=(end_month-start_month)+1
+
+        for i in range(start_month, end_month+1):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+            
+    elif start_month > end_month:
+        l = (end_month+12) - start_month + 1
+        
+        for i in range(start_month, 13):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+        
+        for i in range(1, end_month+1):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+        
 
     # for i in range(x, y+1):
     #     k = i
     #     if k>12:
     #         k=k-12
     #     total+=int(q[k:k+1].value)
-    for i in range(len(q)):
-        total+=int(q[i:i+1].value)
+    # for i in range(len(q)):
+    #     total+=int(q[i:i+1].value)
 
-    # l=(end_month-start_month)
-    l=12
+    # l=12
     avg_rainfall = total/l
 
     data = np.array([[N, P, K, temprature, humidity, ph, avg_rainfall]])
@@ -91,7 +106,7 @@ def members1():
     my_prediction = crop_recommendation_model.predict(data)
     final_prediction = my_prediction[0]
 
-    return jsonify({"crop": final_prediction, "data": y.json()['main']})
+    return jsonify({"crop": final_prediction, "data": y.json()['main'], 'l':l})
 
 
 
@@ -109,6 +124,8 @@ def members2():
         moisture = float(request.json['moisture'])
         soil_type = request.json['soil_type']
         crop_type = request.json['crop_type']
+        start_month = int(request.json['start_month'])
+        end_month = int(request.json['end_month'])
     except:
         return jsonify({"crop": 'failed to get info2', "data": request.json})
 
@@ -129,10 +146,49 @@ def members2():
     q = df.query('STATE_UT_NAME=="ANDAMAN And NICOBAR ISLANDS" and DISTRICT == "NICOBAR"', inplace = False)
     # q = df.query('STATE_UT_NAME == "{}" and DISTRICT == "{}"'.format(state, district), inplace = False)
 
+    # total=0
+    # for i in range(len(q)):
+    #     total+=int(q[i:i+1].value)
+    # avg_rainfall = total/len(q)
+
     total=0
-    for i in range(len(q)):
-        total+=int(q[i:i+1].value)
-    avg_rainfall = total/len(q)
+    # l=12
+
+    if start_month <= end_month: 
+        l=(end_month-start_month)+1
+
+        for i in range(start_month, end_month+1):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+            
+    elif start_month > end_month:
+        l = (end_month+12) - start_month + 1
+        
+        for i in range(start_month, 13):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+        
+        for i in range(1, end_month+1):
+            try:
+                total+=int(q[i:i+1].value)
+            except:
+                total-=1
+        
+
+    # for i in range(x, y+1):
+    #     k = i
+    #     if k>12:
+    #         k=k-12
+    #     total+=int(q[k:k+1].value)
+    # for i in range(len(q)):
+    #     total+=int(q[i:i+1].value)
+
+    # l=12
+    avg_rainfall = total/l
 
     data = np.array([[ avg_rainfall, humidity, moisture, soil_type, crop_type, N, K, P ]])
 
