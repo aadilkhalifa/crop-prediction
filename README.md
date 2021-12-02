@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Crop and Fertilizer recommendation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A website which allows farmers to input their soil and location details and get a recommendation for the crop to grow and fertilizer to use, using machine learning models.
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Agriculture, along with related sectors, is the largest source of livelihood in India. Machine learning can be an essential decision support tool for farmers providing recommended crops, fertilizers, and other practices based on collected data. Here, we have used machine learning models to predict the best crop and best fertilizers to be used based on the soil quality and location. We explored different machine learning algorithms and have performed an analysis. We have also integrated the models into a website where users can enter their soil details and get a crop and fertilizer recommendation.
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Alt Text](https://github.com/aadilkhalifa/crop-prediction/blob/main/images/demo.gif?raw=true)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS
+- Flask
+- Python
 
-### `npm run build`
+## Datasets used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Crop recommendation](https://www.kaggle.com/atharvaingle/crop-recommendation-dataset)
+- [Rainfall prediction](https://www.kaggle.com/rajanand/rainfall-in-india)
+- [Fertilizer recommendation](https://www.kaggle.com/gdabhishek/fertilizer-prediction)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## APIs used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Mapbox API](https://www.mapbox.com/) to get the coordinates using the state and district.
+- [OpenWeatherMap API](https://openweathermap.org/) to get the weather data from coordinates.
 
-### `npm run eject`
+## Architecture
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src="https://github.com/aadilkhalifa/crop-prediction/blob/main/images/block-diagram.jpg?raw=true" alt="drawing" width="500"/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Running the app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You need to first start the server
 
-## Learn More
+```bash
+cd server
+python server.py
+```
+This will start the server of localhost port 5000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can now run the app on a separate terminal from the root directory
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
+## Results
 
-### Code Splitting
+Accuracy comparison of different Crop Recommendation models:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="https://github.com/aadilkhalifa/crop-prediction/blob/main/images/crop-accuracy.jpg?raw=true" alt="drawing" width="500"/>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Accuracy comparison of different Fertilizer Recommendation models:
 
-### Making a Progressive Web App
+<img src="https://github.com/aadilkhalifa/crop-prediction/blob/main/images/fertilizer-accuracy.jpg?raw=true" alt="drawing" width="500"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
