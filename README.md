@@ -1,6 +1,6 @@
 # Crop and Fertilizer recommendation
 
-A website which allows farmers to input their soil and location details and get a recommendation for the crop to grow and fertilizer to use, using machine learning models.
+A website that allows farmers to get a crop and fertilizer recommendation based on their soil and location details using machine learning models.
 
 ## Introduction
 
